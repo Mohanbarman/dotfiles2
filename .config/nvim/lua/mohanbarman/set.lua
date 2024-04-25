@@ -40,4 +40,5 @@ vim.opt.showmode = false
 --vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+vim.cmd("autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>")
 
