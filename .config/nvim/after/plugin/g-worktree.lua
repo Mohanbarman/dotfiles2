@@ -1,0 +1,4 @@
+-- require("g-worktree").setup({
+-- 	post_create_cmd = "Oil .",
+-- })
+-- require("telescope").load_extension("g_worktree")
