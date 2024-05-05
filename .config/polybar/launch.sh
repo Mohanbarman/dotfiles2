@@ -18,6 +18,7 @@ launch_bar() {
 		bash "$dir"/pwidgets/launch.sh --main
 	else
 		polybar -q main -c "$dir/$style/config.ini" &	
+		polybar -q secondary -c "$dir/$style/config.ini" &	
 	fi
 }
 
