@@ -1,6 +1,8 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/mohan/.zsh/completions:"* ]]; then export FPATH="/home/mohan/.zsh/completions:$FPATH"; fi
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin"
+export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin"
 
 ZSH_THEME="eastwood"
 #zstyle ':omz:plugins:nvm' lazy yes # lazy loading nvm
@@ -34,3 +36,6 @@ eval "$(fnm env --use-on-cd)"
 fpath+=~/.zfunc
 compinit
 
+eval "$(luarocks path --bin)"
+alias ls='exa'
+export CHROME_EXECUTABLE=/usr/bin/chromium

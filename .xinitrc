@@ -19,6 +19,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 xset s 3600 3600
 #blueman-applet &
 
-#export GTK_THEME=Catppuccin-Mocha-BL
+export GTK_THEME=Catppuccin-Mocha-BL
 
 exec bspwm

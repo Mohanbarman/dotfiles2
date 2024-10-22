@@ -186,15 +186,15 @@ super + alt + space
 
 # Increase volume
 XF86AudioRaiseVolume
-	ponymix increase 5
+	amixer set Master 5%+
 
 # Decrease volume
 XF86AudioLowerVolume
-	ponymix decrease 5
+	amixer set Master 5%-
 
 # Toggle mute
 XF86AudioMute
-	ponymix toggle
+	amixer set Master toggle
 
 # Brightness
 XF86MonBrightnessDown
@@ -221,5 +221,11 @@ super + shift + s
 	bspc node -s "$dir.local" --follow \
 	    || bspc node -m "$dir" --follow
 
+# set default output to gpu output
+alt + 1
+  pactl set-default-sink 'alsa_output.pci-0000_03_00.1.hdmi-stereo-extra2'
 
+# set output default to headphones
+alt + 2
+  pactl set-default-sink 'bluez_output.88_C9_E8_C8_9F_AF.1'
 

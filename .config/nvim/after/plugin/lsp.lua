@@ -21,6 +21,17 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 })
 
+require("flutter-tools").setup({
+	debugger = {
+		enabled = true,
+		register_configurations = function(paths)
+			require("dap").configurations.dart = {}
+			-- If you want to load .vscode launch.json automatically run the following:
+			require("dap.ext.vscode").load_launchjs()
+		end,
+	},
+}) -- use defaults
+
 lsp.set_preferences({
 	suggest_lsp_servers = false,
 	sign_icons = {
@@ -52,7 +63,7 @@ lsp.use("tsserver", {
 	},
 })
 
-lsp.on_attach(function(client, bufnr)
+function on_attach(client, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
 	require("goto-preview").setup({})
 
@@ -103,10 +114,24 @@ lsp.on_attach(function(client, bufnr)
 		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 	end, opts)
 	vim.keymap.set("n", "<leader>ge", ":Telescope diagnostics<CR>")
-end)
+end
+
+lsp.on_attach(on_attach)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = true,
+})
+
+local nvim_lsp = require("lspconfig")
+nvim_lsp.denols.setup({
+	on_attach = on_attach,
+	root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	root_dir = nvim_lsp.util.root_pattern("package.json"),
+	single_file_support = false,
 })
 
 lsp.setup()
