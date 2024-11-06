@@ -7,7 +7,38 @@ local dapui = require("dapui")
 require("nvim-dap-projects").search_project_config()
 require("mason").setup()
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
-dapui.setup()
+dapui.setup({
+	layouts = {
+		{
+			elements = {
+				{
+					id = "stacks",
+					size = 0.50,
+				},
+				{
+					id = "watches",
+					size = 0.50,
+				},
+			},
+			position = "left",
+			size = 40,
+		},
+		{
+			elements = {
+				{
+					id = "console",
+					size = 1.3,
+				},
+				{
+					id = "repl",
+					size = 0.15,
+				},
+			},
+			position = "right",
+			size = 40,
+		},
+	},
+})
 
 local codelldb = mason_registery.get_package("codelldb")
 local extension_path = codelldb:get_install_path() .. "/extension/"

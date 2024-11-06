@@ -2,7 +2,7 @@
 if [[ ":$FPATH:" != *":/home/mohan/.zsh/completions:"* ]]; then export FPATH="/home/mohan/.zsh/completions:$FPATH"; fi
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin"
+export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin:$HOME/go/bin"
 
 ZSH_THEME="eastwood"
 #zstyle ':omz:plugins:nvm' lazy yes # lazy loading nvm
@@ -39,3 +39,5 @@ compinit
 eval "$(luarocks path --bin)"
 alias ls='exa'
 export CHROME_EXECUTABLE=/usr/bin/chromium
+
+alias convert-mov="mkdir out 2&>/dev/null; for i in *; do ffmpeg -i "$i" -c:v prores_ks -profile:v 3 -c:a pcm_s16le "out/${i%.*}.mov"; done"

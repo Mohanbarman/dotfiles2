@@ -155,4 +155,22 @@ return require("lazy").setup({
 		config = true,
 	},
 	-- { name = "g-worktree", dir = "/Users/mohan/Dev/g-worktree.nvim" },
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
+		"3rd/image.nvim",
+		opts = {},
+	},
+}, {
+	rocks = {
+		hererocks = true, -- recommended if you do not have global installation of Lua 5.1.
+	},
 })

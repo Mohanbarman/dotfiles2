@@ -16,5 +16,6 @@ require("conform").setup({
 		c = { "clang_format" },
 		asm = { "asmfmt" },
 		dart = { "dart_format" },
+		markdown = { "markdownfmt", "cbfmt" },
 	},
 })
