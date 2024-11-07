@@ -1,3 +1,7 @@
+# Screenshots
+![Screenshot 01](screenshots/desktop-01.png)
+![Screenshot 01](screenshots/desktop-02.png)
+
 # Installation
 ## Stow
 Used for managing the configuration
