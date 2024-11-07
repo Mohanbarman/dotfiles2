@@ -1,6 +1,15 @@
 require("nvim-treesitter.configs").setup({
-	ensure_installed = "all",
-	ignore_install = { "phpdoc" },
+	ensure_installed = {
+		"typescript",
+		"javascript",
+		"c",
+		"lua",
+		"vim",
+		"vimdoc",
+		"query",
+		"markdown",
+		"markdown_inline",
+	},
 	sync_install = true,
 	auto_install = true,
 	autotag = {
