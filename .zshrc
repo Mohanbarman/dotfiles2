@@ -2,7 +2,7 @@
 if [[ ":$FPATH:" != *":/home/mohan/.zsh/completions:"* ]]; then export FPATH="/home/mohan/.zsh/completions:$FPATH"; fi
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin:$HOME/go/bin"
+export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin:$HOME/go/bin:$HOME/vm/start-scripts"
 
 ZSH_THEME="eastwood"
 #zstyle ':omz:plugins:nvm' lazy yes # lazy loading nvm

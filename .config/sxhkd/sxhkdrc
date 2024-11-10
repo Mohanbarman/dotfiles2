@@ -28,7 +28,7 @@ super + shift + ctrl + c
 # reload polybar
 super + shift + ctrl + p
   notify-send 'Reloading polybar.';\
-  killall polybar ; polybar mybar &
+  $HOME/.config/polybar/launch.sh --forest
 
 # reload notification system
 super + shift + ctrl + d
@@ -182,20 +182,12 @@ super + o
   obs
 
 # set default output to gpu output
-F1
+Home
   pactl set-default-sink 'alsa_output.pci-0000_03_00.1.hdmi-stereo-extra2'
 
 # set output default to headphones
-F2
+End
   pactl set-default-sink 'bluez_output.88_C9_E8_C8_9F_AF.1'
-
-# set headphone profile to ldac
-F3
-  pactl set-card-profile bluez_card.88_C9_E8_C8_9F_AF a2dp-sink
-
-# change to call mode allowing mic
-F4
-  pactl set-card-profile bluez_card.88_C9_E8_C8_9F_AF headset-head-unit 
 
 super + s
   flameshot gui

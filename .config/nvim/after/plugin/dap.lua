@@ -7,8 +7,9 @@ local dapui = require("dapui")
 require("nvim-dap-projects").search_project_config()
 require("mason").setup()
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
-dapui.setup({
-	layouts = {
+
+local layouts = {
+	default = {
 		{
 			elements = {
 				{
@@ -38,7 +39,23 @@ dapui.setup({
 			size = 40,
 		},
 	},
-})
+	compact = {
+		{
+			elements = {
+				{
+					id = "watches",
+					size = 0.50,
+				},
+				{
+					id = "bottom",
+					size = 0.50,
+				},
+			},
+			position = "bottom",
+			size = 7,
+		},
+	},
+}
 
 local codelldb = mason_registery.get_package("codelldb")
 local extension_path = codelldb:get_install_path() .. "/extension/"
@@ -154,7 +171,23 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 	}
 end
 
+local current_layout = "default"
+local dapui_setup_done = false
+
+vim.keymap.set("n", "<leader>dt", function()
+	if dapui_setup_done then
+		vim.print("dapui setup already done")
+		return
+	end
+	current_layout = (current_layout == "default") and "compact" or "default"
+	vim.print("switched to dapui layout: " .. current_layout)
+end)
+
 vim.keymap.set("n", "<leader>du", function()
+	if not dapui_setup_done then
+		dapui.setup({ layouts = layouts[current_layout] })
+		dapui_setup_done = true
+	end
 	dapui.toggle()
 end)
 
