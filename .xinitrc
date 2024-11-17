@@ -1,7 +1,7 @@
 sxhkd &
 #xrandr --output HDMI-A-4 --set "scaling mode" "Full aspect"
 #xrandr -s 2560x1440
-xrandr --dpi 100
+xrandr --dpi 120
 xrandr --output DisplayPort-3 --dpi 120
 xrandr --output HDMI-A-4 --rotate left
 xrdb /home/mohan/.Xresources

@@ -12,6 +12,37 @@ require("obsidian").setup({
 		},
 	},
 
+	templates = {
+		folder = "~/Documents/vaults/mind/templates",
+		date_format = "%Y-%m-%d-%a",
+		time_format = "%H:%M",
+	},
+
+	mappings = {
+		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+		["gf"] = {
+			action = function()
+				return require("obsidian").util.gf_passthrough()
+			end,
+			opts = { noremap = false, expr = true, buffer = true },
+		},
+		-- Smart action depending on context, either follow link or toggle checkbox.
+		["<cr>"] = {
+			action = function()
+				return require("obsidian").util.smart_action()
+			end,
+			opts = { buffer = true, expr = true },
+		},
+		["<leader>ot"] = {
+			action = function()
+				local title = vim.fn.input("New note title: ", "", "file")
+        if title then
+          vim.cmd("ObsidianNewFromTemplate " .. title)
+        end
+			end,
+		},
+	},
+
 	-- Optional, customize how note IDs are generated given an optional title.
 	---@param title string|?
 	---@return string

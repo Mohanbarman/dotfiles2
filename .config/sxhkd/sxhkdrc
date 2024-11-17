@@ -3,7 +3,7 @@ super + Return
 	kitty
 
 super + b
-	chromium
+	chromium --force-device-scale-factor=1.5
 
 super + p
   passmenu
@@ -190,5 +190,5 @@ End
   pactl set-default-sink 'bluez_output.88_C9_E8_C8_9F_AF.1'
 
 super + s
-  flameshot gui
+  flameshot gui -r | xclip -selection clipboard -t image/png
 

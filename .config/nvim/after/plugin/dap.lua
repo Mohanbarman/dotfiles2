@@ -47,7 +47,7 @@ local layouts = {
 					size = 0.50,
 				},
 				{
-					id = "bottom",
+					id = "console",
 					size = 0.50,
 				},
 			},
@@ -211,7 +211,10 @@ vim.keymap.set("n", "<leader>dB", function()
 end)
 --vim.keymap.set('n', '<leader>dlp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set("n", "<leader>dr", function()
-	dap.repl.open()
+	dap.repl.toggle()
+end)
+vim.keymap.set("n", "<leader>dd", function()
+	dap.restart()
 end)
 vim.keymap.set("n", "<leader>dl", function()
 	dap.clear_breakpoints()

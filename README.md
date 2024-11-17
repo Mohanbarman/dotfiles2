@@ -29,11 +29,11 @@ pacman -S $(cat pacman-pkgs.txt)
 ```
 
 ### Create packages backup
-#### AUR
+#### Pacman
 ```bash
 pacman -Qeqn > pacman-pkgs.txt
 ```
-#### Pacman
+#### AUR
 ```bash
 pacman -Qemq > aur-packages.lst
 ```
