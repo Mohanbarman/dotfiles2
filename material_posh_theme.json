@@ -5,17 +5,6 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "executiontime",
-          "style": "plain",
-          "foreground": "#6c6f85",
-          "template": "{{ .FormattedMs }} ",
-          "properties": {
-            "threshold": 500,
-            "style": "austin",
-            "always_enabled": true
-          }
-        },
-        {
           "foreground": "#B4BEFE", 
           "style": "plain",
           "template": "<#F28FAD>\u276f</><#ABE9B3>\u276f</>",
@@ -39,15 +28,32 @@
           "style": "plain",
           "template": "<#F5C2E7>git:(</>{{ .HEAD }}<#F5C2E7>)</> ",
           "type": "git"
-        },
-        {
-          "foreground": "#FAB387", 
-          "style": "plain",
-          "template": "\uf119  {{.String}} ",
-          "type": "status"
         }
       ],
       "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#f38ba8", 
+          "style": "plain",
+          "template": "{{.String}} ",
+          "type": "status"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#45475a",
+          "template": "{{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
+        }
+      ],
+      "type": "rprompt"
     }
   ],
   "version": 3

@@ -20,6 +20,14 @@ SAVEHIST=10000           # Number of commands to save to the file
 setopt appendhistory     # Append history to the file (don't overwrite)
 setopt sharehistory      # Share history between Zsh sessions
 
+# Use Emacs keybindings (disable Vim mode)
+bindkey -e
+
+# Enable Ctrl+X E for editing the current command
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
 # Enable history search with arrow keys
 bindkey '^[[A' history-search-backward  # Up arrow key
 bindkey '^[[B' history-search-forward   # Down arrow key
@@ -49,6 +57,16 @@ fpath+=~/.zfunc
 # Enable Zsh's completion system
 autoload -U compinit
 compinit
+
+# Enable Alt + Left Arrow for moving backward by word
+bindkey '\e[1;3D' backward-word
+# Enable Alt + Right Arrow for moving forward by word
+bindkey '\e[1;3C' forward-word
+# Ctrl + Left Arrow to move backward by word
+bindkey '\e[1;5D' backward-word
+# Ctrl + Right Arrow to move forward by word
+bindkey '\e[1;5C' forward-word
+
 
 # Enhanced completion options
 zstyle ':completion:*' menu select
