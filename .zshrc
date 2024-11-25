@@ -13,6 +13,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+export MANPAGER='nvim +Man!'
+
 # Enable persistent history
 HISTFILE=~/.zsh_history  # Location of history file
 HISTSIZE=10000           # Number of commands to keep in memory
@@ -74,6 +76,8 @@ zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:warnings' format '%B%F{yellow}%d%f%b'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' group-name ''
+# Enable case-insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|=*' 'l:|=* r:|=*'
 
 eval "$(luarocks path --bin)"
 eval "$(oh-my-posh init zsh --config $HOME/dotfiles/material_posh_theme.json)"

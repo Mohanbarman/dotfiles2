@@ -187,8 +187,8 @@ Home
 
 # set output default to headphones
 End
-  pactl set-default-sink 'bluez_output.88_C9_E8_C8_9F_AF.1'
+  pactl set-default-sink 'bluez_sink.88_C9_E8_C8_9F_AF.a2dp_sink'
 
 super + s
-  flameshot gui -r | xclip -selection clipboard -t image/png
+  flameshot gui
 
