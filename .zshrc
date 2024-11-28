@@ -49,6 +49,7 @@ alias v='nvim'
 alias startx-amd='XORGCONFIG=amd.conf startx'
 alias startx-intel='XORGCONFIG=intel.conf startx'
 alias ls='exa'
+alias l='exa -l'
 alias startamd='enable-amdgpu; startx-amd'
 alias convert-mov="mkdir out 2&>/dev/null; for i in *; do ffmpeg -i "$i" -c:v prores_ks -profile:v 3 -c:a pcm_s16le "out/${i%.*}.mov"; done"
 

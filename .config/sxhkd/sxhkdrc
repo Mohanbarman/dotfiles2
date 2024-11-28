@@ -3,7 +3,7 @@ super + Return
 	kitty
 
 super + b
-	chromium --force-device-scale-factor=1.5
+	firefox
 
 super + p
   passmenu
