@@ -44,13 +44,25 @@
         {
           "type": "executiontime",
           "style": "plain",
-          "foreground": "#45475a",
+          "foreground": "#6c7086",
           "template": "{{ .FormattedMs }} ",
           "properties": {
             "threshold": 500,
             "style": "austin",
             "always_enabled": true
           }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#f9e2af",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#a6e3a1",
+          "template": "  {{ .Full }} "
         }
       ],
       "type": "rprompt"
