@@ -1,0 +1,35 @@
+alt - 0x24 : kitty --single-instance ~
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+alt - f: yabai -m window --toggle zoom-fullscreen
+alt - n : yabai -m window --focus next
+alt - p : yabai -m window --focus prev
+alt - t : yabai -m window --toggle float
+
+alt - c : yabai -m window --swap next
+alt + shift - c : yabai -m window --swap prev
+
+cmd + shift - 1 : yabai -m window --space 1
+cmd + shift - 2 : yabai -m window --space 2
+cmd + shift - 3 : yabai -m window --space 3
+cmd + shift - 4 : yabai -m window --space 4
+cmd + shift - 5 : yabai -m window --space 5
+cmd + shift - 6 : yabai -m window --space 6
+cmd + shift - 7 : yabai -m window --space 7
+cmd + shift - 8 : yabai -m window --space 8
+cmd + shift - 9 : yabai -m window --space 9
+cmd + shift - 0 : yabai -m window --space 10
+
+alt - q:
+  current_space=$(yabai -m query --spaces --space | jq -r '.index'); \
+  yabai -m space --destroy; \
+  yabai -m space --focus $((current_space - 1))
+
+alt - z: /opt/homebrew/bin/zathura
+
+cmd - b : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+
+f12 : /Users/mohan/Dev/greyhr-mark-attendence/mark-attendance

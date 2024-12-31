@@ -10,7 +10,7 @@ return require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 	},
-	{ "ThePrimeagen/harpoon" },
+	-- { "ThePrimeagen/harpoon" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
 	{
@@ -77,7 +77,7 @@ return require("lazy").setup({
 	{ "windwp/nvim-ts-autotag" },
 	{ "stevearc/dressing.nvim" },
 	{ "folke/tokyonight.nvim" },
-	{ "stevearc/oil.nvim" },
+	{ "stevearc/oil.nvim", dependencies = { { "echasnovski/mini.icons", opts = {} } } },
 	{ "folke/twilight.nvim" },
 	{ "tpope/vim-dadbod" },
 	{ "stevearc/conform.nvim" },
@@ -165,20 +165,7 @@ return require("lazy").setup({
 		"3rd/image.nvim",
 	},
 	-- {
-	-- 	"christoomey/vim-tmux-navigator",
-	-- 	cmd = {
-	-- 		"TmuxNavigateLeft",
-	-- 		"TmuxNavigateDown",
-	-- 		"TmuxNavigateUp",
-	-- 		"TmuxNavigateRight",
-	-- 		"TmuxNavigatePrevious",
-	-- 	},
-	-- 	keys = {
-	-- 		{ "<A-h>", ":TmuxNavigateLeft<CR>", silent = true },
-	-- 		{ "<A-j>", ":TmuxNavigateDown<CR>", silent = true },
-	-- 		{ "<A-k>", ":TmuxNavigateUp<CR>", silent = true },
-	-- 		{ "<A-l>", ":TmuxNavigateRight<CR>", silent = true },
-	-- 	},
+	-- 	dir = "~/Dev/plugins/g-worktree.nvim",
 	-- },
 }, {
 	rocks = {

@@ -1,11 +1,12 @@
 # Add deno completions to search path
 # if [[ ":$FPATH:" != *":/home/mohan/.zsh/completions:"* ]]; then export FPATH="/home/mohan/.zsh/completions:$FPATH"; fi
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/google-cloud-cli/path.zsh.inc
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh/site-functions
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /opt/google-cloud-cli/path.zsh.inc
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
-export PATH="$PATH:/opt/google-cloud-cli/bin:/home/mohan/Android/Sdk/emulator/:/home/mohan/scripts:/home/mohan/.cargo/bin:/home/mohan/.deno/bin:$HOME/go/bin:$HOME/vm/start-scripts"
+export PATH="$PATH:$HOME/go/bin:$HOME/scripts:$HOME/Dev/greyhr-mark-attendence"
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/chromium
 # fzf theme [catppuccin]
@@ -14,6 +15,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 export MANPAGER='nvim +Man!'
+export PASSWORD_STORE_DIR="$HOME/password-store"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
 
 # Enable persistent history
 HISTFILE=~/.zsh_history  # Location of history file
@@ -46,12 +49,11 @@ bindkey '^F' autosuggest-accept
 
 alias vim=nvim
 alias v='nvim'
-alias startx-amd='XORGCONFIG=amd.conf startx'
-alias startx-intel='XORGCONFIG=intel.conf startx'
-alias ls='exa'
-alias l='exa -l'
-alias startamd='enable-amdgpu; startx-amd'
-alias convert-mov="mkdir out 2&>/dev/null; for i in *; do ffmpeg -i "$i" -c:v prores_ks -profile:v 3 -c:a pcm_s16le "out/${i%.*}.mov"; done"
+alias ls='eza'
+alias l='eza -l'
+alias gu='git pull'
+alias gp='git push'
+alias gc='git checkout'
 
 eval "$(fnm env --use-on-cd)"
 
@@ -81,4 +83,18 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|=*' 'l:|=* r:|=*'
 
 eval "$(luarocks path --bin)"
-eval "$(oh-my-posh init zsh --config $HOME/dotfiles/material_posh_theme.json)"
+eval "$(oh-my-posh init zsh --config $HOME/.posh_theme.json)"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$(npm config get prefix)/bin"
+export PATH="$HOME/.gem/ruby/$(ruby -e 'puts RUBY_VERSION')/bin:$PATH"
+. /opt/homebrew/etc/profile.d/z.sh
