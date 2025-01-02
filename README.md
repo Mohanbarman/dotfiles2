@@ -5,9 +5,15 @@
 # Installation
 ## Stow
 Used for managing the configuration
-```
+```bash
 sudo pamcan -S stow
 ```
+## Stow Mac
+
+```bash
+brew install stow
+```
+
 ### Create Symlinks
 Places the files in their respective locations by creating symlinks
 ```bash
